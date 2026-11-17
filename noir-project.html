@@ -22,36 +22,48 @@
             Discord Design & Development
         </p>
 
-        <section class="case-section">
-            <span class="case-label">01 / OVERVIEW</span>
-            <p>
-                A custom Discord environment designed around
-                visual identity, structured communication,
-                and community experience.
-            </p>
-        </section>
+<div class="case-hero">
+    <img
+        src="images/noir-hero.png"
+        alt="Noir Studio server roles, verification security, custom themes and community experience"
+        role="button"
+        tabindex="0"
+        aria-label="Enlarge Noir Studio hero image"
+        onclick="openHero()"
+        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openHero(); }"
+    >
+</div>
 
-        <section class="case-section">
-            <span class="case-label">02 / DEVELOPMENT</span>
+<p class="showcase-caption">
+    A custom Discord experience combining structured member roles,
+    secure verification, and cohesive visual design.
+</p>
 
-            <div class="case-features">
-                <p>Channel Architecture</p>
-                <p>Custom Embeds & Graphics</p>
-                <p>Community Onboarding</p>
-                <p>Verification System</p>
-                <p>Automated Moderation</p>
-                <p>Support & Information Resources</p>
-            </div>
-        </section>
+<section class="visual-gallery">
+    <div class="gallery-heading">
+        <span>01 / CUSTOM EMBEDS</span>
+        <h2>Rules & Community Guidelines</h2>
+    </div>
 
-        <section class="case-section">
-            <span class="case-label">03 / EXPERIENCE</span>
-            <p>
-                A cohesive digital space combining organized
-                navigation, custom visual elements, and
-                accessible community resources.
-            </p>
-        </section>
+<img
+    src="images/noir-rules.png"
+    alt="Noir Studio Discord rules and community guidelines"
+    class="gallery-image"
+    role="button"
+    tabindex="0"
+    aria-label="Enlarge Rules showcase"
+    onclick="openRules()"
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openRules(); }"
+>
+
+<p class="showcase-caption">
+    Thoughtfully organized channels, custom branded embeds,
+    and clear community guidelines designed for effortless navigation.
+</p>
+
+</section>
+
+
 
         <footer class="case-footer">
             <a href="work.html">← BACK TO WORK</a>
@@ -64,5 +76,78 @@
 
     </main>
 
+<div id="rules-lightbox" class="showcase-lightbox"
+     onclick="closeRules()"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Rules showcase"
+     hidden>
+
+    <button class="lightbox-close"
+            onclick="closeRules()"
+            aria-label="Close image">&times;</button>
+
+    <img
+        src="images/noir-rules.png"
+        alt="Enlarged Noir Studio rules showcase"
+        onclick="event.stopPropagation()"
+    >
+</div>
+
+<script>
+    function openRules() {
+        document.getElementById("rules-lightbox").hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeRules() {
+        document.getElementById("rules-lightbox").hidden = true;
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeRules();
+    });
+</script>
+
+<div id="hero-lightbox"
+     class="showcase-lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Noir Studio hero showcase"
+     onclick="closeHero()"
+     hidden>
+
+    <button class="lightbox-close"
+            onclick="closeHero()"
+            aria-label="Close image">&times;</button>
+
+    <img
+        src="images/noir-hero.png"
+        alt="Enlarged Noir Studio hero showcase"
+        onclick="event.stopPropagation()"
+    >
+</div>
+
+<script>
+    function openHero() {
+        document.getElementById("hero-lightbox").hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeHero() {
+        document.getElementById("hero-lightbox").hidden = true;
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeHero();
+    });
+</script>
+
 </body>
 </html>
+
+.gallery-image {
+    cursor: zoom-in;
+}
