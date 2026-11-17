@@ -61,8 +61,28 @@
     and clear community guidelines designed for effortless navigation.
 </p>
 
-</section>
+<section class="visual-gallery">
+    <div class="gallery-heading">
+        <span>02 / COMMUNITY ONBOARDING</span>
+        <h2>Welcome & Member Experience</h2>
+    </div>
 
+<img
+    src="images/noir-onboarding.png"
+    alt="Noir Studio community onboarding and welcome experience"
+    class="gallery-image"
+    role="button"
+    tabindex="0"
+    aria-label="Enlarge onboarding showcase"
+    onclick="openOnboarding()"
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openOnboarding(); }"
+>
+
+    <p class="showcase-caption">
+        A welcoming introduction designed to help new members
+        navigate the community and access essential resources.
+    </p>
+</section>
 
 
         <footer class="case-footer">
@@ -142,6 +162,43 @@
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") closeHero();
+    });
+</script>
+
+<!-- ONBOARDING IMAGE LIGHTBOX -->
+
+<div id="onboarding-lightbox"
+     class="showcase-lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Noir Studio onboarding showcase"
+     onclick="closeOnboarding()"
+     hidden>
+
+    <button class="lightbox-close"
+            onclick="closeOnboarding()"
+            aria-label="Close image">&times;</button>
+
+    <img
+        src="images/noir-onboarding.png"
+        alt="Enlarged Noir Studio onboarding showcase"
+        onclick="event.stopPropagation()"
+    >
+</div>
+
+<script>
+    function openOnboarding() {
+        document.getElementById("onboarding-lightbox").hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeOnboarding() {
+        document.getElementById("onboarding-lightbox").hidden = true;
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeOnboarding();
     });
 </script>
 
