@@ -1,94 +1,139 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selected Work — Noir Studio</title>
-<link rel="stylesheet" href="style.css?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore selected Discord design and digital experience work from NOIR STUDIO.">
+  <title>Selected Work | NOIR STUDIO</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <style>
+    /* Portfolio-specific styling. Existing site pages remain unchanged. */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body.noir-work { margin: 0; padding: 0; background: #080808; color: #eeeae7; text-align: left; font-family: "Helvetica Neue", Arial, sans-serif; }
+    .noir-work a { color: inherit; }
+    .nw-wrap { width: min(1360px, calc(100% - 11%)); margin: auto; }
+    .nw-header { height: 80px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; padding: 0 5.5%; }
+    .nw-logo { font-size: 21px; font-weight: 700; letter-spacing: -.06em; text-decoration: none; }
+    .nw-logo sup { font-size: 8px; position: relative; top: -.5em; margin-left: 2px; }
+    .nw-nav { display: flex; gap: 36px; align-items: center; }
+    .nw-nav a { font-size: 10px; letter-spacing: 2px; text-decoration: none; color: #aaa; transition: color .2s; }
+    .nw-nav a:hover, .nw-nav a:focus-visible { color: #fff; }
+    .nw-hero { padding-top: clamp(100px, 12vw, 185px); padding-bottom: clamp(90px, 11vw, 155px); }
+    .nw-eyebrow, .nw-kicker { color: #878787; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; }
+    .nw-hero h1 { font-size: clamp(58px, 10vw, 150px); line-height: .96; letter-spacing: -.08em; font-weight: 400; text-transform: none; margin: 38px 0 40px; }
+    .nw-hero h1 em, .nw-outro h2 em { display: block; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.07em; }
+    .nw-intro { max-width: 520px; color: #aaa; font-size: 15px; line-height: 1.8; letter-spacing: .1px; text-align: left; margin: 0; }
+    .nw-project { border-top: 1px solid #2b2b2b; padding: 55px 0 135px; }
+    .nw-meta { display: flex; justify-content: space-between; gap: 18px; }
+    .nw-heading { margin: 75px 0 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 25px; }
+    .nw-heading h2 { font-size: clamp(48px, 7vw, 102px); line-height: 1; letter-spacing: -.07em; font-weight: 400; margin: 0; text-transform: none; }
+    .nw-heading p { margin: 0 0 8px; color: #999; font-size: 12px; letter-spacing: 1px; }
+    .nw-visual { display: block; width: 100%; padding: 0; border: 1px solid #282828; cursor: zoom-in; background: #151515; margin: 44px 0 0; overflow: hidden; }
+    .nw-visual img { display: block; width: 100%; height: auto; transition: transform .5s ease; }
+    .nw-visual:hover img { transform: scale(1.012); }
+    .nw-details { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding: 46px 0 55px; border-bottom: 1px solid #292929; }
+    .nw-details h3 { font-size: clamp(22px, 3vw, 34px); line-height: 1.3; font-weight: 400; letter-spacing: -.03em; margin: 15px 0; }
+    .nw-details p { color: #a9a9a9; font-size: 14px; letter-spacing: 0; line-height: 1.9; max-width: 510px; text-align: left; }
+    .nw-capabilities { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; padding-top: 22px; }
+    .nw-capabilities span { font-size: 12px; color: #dadada; padding: 15px 0; border-top: 1px solid #292929; }
+    .nw-actions { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 35px; }
+    .nw-primary, .nw-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 22px; min-height: 52px; padding: 15px 24px; text-decoration: none; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; transition: background .25s, color .25s; }
+    .nw-primary { background: #ebe8e3; color: #080808 !important; }
+    .nw-primary:hover { background: #bbb7b1; }
+    .nw-secondary { border: 1px solid #4a4a4a; color: #dedede; }
+    .nw-secondary:hover { background: #202020; }
+    .nw-outro { border-top: 1px solid #242424; padding: 120px 20px 130px; text-align: center; background: #101010; }
+    .nw-outro h2 { margin: 35px 0; font-size: clamp(56px, 8vw, 110px); font-weight: 400; letter-spacing: -.07em; line-height: .98; text-transform: none; }
+    .nw-outro h2 em { font-style: italic; }
+    .nw-footer { border-top: 1px solid #252525; display: flex; justify-content: space-between; padding: 28px 5.5%; gap: 20px; color: #777; font-size: 10px; letter-spacing: 2px; }
+    .nw-footer a { color: #999; text-decoration: none; }
+    .nw-lightbox[hidden] { display: none; }
+    .nw-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.96); padding: 60px 20px 25px; }
+    .nw-lightbox img { max-width: 95vw; max-height: 88vh; object-fit: contain; }
+    .nw-close { position: absolute; right: 24px; top: 14px; border: 0; background: transparent; color: #fff; font-size: 36px; cursor: pointer; padding: 8px 14px; }
+    .noir-work :focus-visible { outline: 2px solid #eee; outline-offset: 5px; }
+    @media (max-width: 700px) {
+      .nw-header { height: 68px; padding: 0 6%; }
+      .nw-wrap { width: 88%; }
+      .nw-nav { gap: 16px; }
+      .nw-nav a { font-size: 9px; letter-spacing: 1px; }
+      .nw-hero { padding-top: 90px; padding-bottom: 90px; }
+      .nw-hero h1 { margin: 25px 0; }
+      .nw-project { padding: 35px 0 85px; }
+      .nw-heading { margin-top: 55px; }
+      .nw-details { grid-template-columns: 1fr; gap: 28px; }
+      .nw-capabilities { grid-template-columns: 1fr; gap: 0; }
+      .nw-outro { padding: 90px 6%; }
+      .nw-footer { flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .nw-visual img { transition: none; } }
+  </style>
 </head>
-<body>
-    <h1>Selected Work</h1>
-    <p>NOIR STUDIO / 2026</p>
-
-    <button onclick="window.location.href='index.html'">
-        Return Home
-    </button>
-
-<section class="work-gallery">
-    
-<div class="project">
-    <span class="project-number">01 / FEATURED PROJECT</span>
-    <h2>NOIR STUDIO</h2>
-    <p>Discord Design & Development</p>
-
-
-<div class="project-preview" style="height:auto; border:none; background:transparent; overflow:hidden;">
-
-    <img
-        src="images/noir-studio-showcase.png"
-        alt="Noir Studio Discord server portfolio showcase"
-class="showcase-thumbnail"
-style="display:block; width:100%; height:auto; max-width:100%;"
-        onclick="openShowcase()"
-        tabindex="0"
-        role="button"
-        aria-label="Enlarge Noir Studio showcase"
-        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openShowcase(); }"
-    >
-</div>
-
-<div class="project-details">
-    <p>
-        A custom Discord environment built around structure,
-        visual identity, and community experience.
-    </p>
-
-    <p>
-        Channel Architecture / Custom Embeds /
-        Verification / Automated Moderation /
-        Community Onboarding
-    </p>
-</div>
-
-<a href="noir-project.html" class="view-project">
-    VIEW PROJECT ↗
-</a>
-
-</div>
-</section>
-
-<div id="showcase-lightbox" class="showcase-lightbox"
-     onclick="closeShowcase()" role="dialog"
-     aria-modal="true" aria-label="Noir Studio showcase"
-     hidden>
-
-    <button class="lightbox-close"
-            onclick="closeShowcase()"
-            aria-label="Close image">&times;</button>
-
-    <img
-        src="images/noir-studio-showcase.png"
-        alt="Enlarged Noir Studio Discord showcase"
-        onclick="event.stopPropagation()"
-    >
-</div>
-
-<script>
-    function openShowcase() {
-        document.getElementById("showcase-lightbox").hidden = false;
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeShowcase() {
-        document.getElementById("showcase-lightbox").hidden = true;
-        document.body.style.overflow = "";
-    }
-
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") closeShowcase();
-    });
-</script>
-
+<body class="noir-work">
+  <header class="nw-header">
+    <a href="index.html" class="nw-logo" aria-label="Noir Studio home">NOIR<sup>®</sup></a>
+    <nav class="nw-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="#selected-work">WORK</a>
+      <a href="contact.html">LET'S TALK ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="nw-wrap nw-hero">
+      <span class="nw-eyebrow">NOIR STUDIO / PORTFOLIO 2026</span>
+      <h1>SELECTED <em>WORK.</em></h1>
+      <p class="nw-intro">An exploration of thoughtful digital design, community experiences, and intentional visual identities. Built with equal attention to aesthetics and functionality.</p>
+    </section>
+    <section class="nw-project" id="selected-work" aria-labelledby="featured-title">
+      <div class="nw-wrap">
+        <div class="nw-meta"><span class="nw-kicker">01 / FEATURED PROJECT</span><span class="nw-kicker">DISCORD / COMMUNITY DESIGN</span></div>
+        <div class="nw-heading"><h2 id="featured-title">NOIR STUDIO.</h2><p>Community design & digital experience</p></div>
+        <button class="nw-visual" id="open-showcase" type="button" aria-label="Enlarge NOIR STUDIO project image">
+          <img src="images/noir-studio-showcase.png" alt="NOIR STUDIO Discord server showcase displaying branded guidelines, channel structure, and visual design">
+        </button>
+        <div class="nw-details">
+          <div>
+            <span class="nw-kicker">THE PROJECT</span>
+            <h3>A digital community with its own visual identity.</h3>
+            <p>NOIR STUDIO is a Discord community design project built around clear navigation, consistent branding, and an intentional member experience. Every visual and structural detail contributes to a cohesive environment.</p>
+          </div>
+          <div>
+            <span class="nw-kicker">WHAT THIS WORK DEMONSTRATES</span>
+            <div class="nw-capabilities">
+              <span>01 / Channel architecture</span>
+              <span>02 / Visual branding</span>
+              <span>03 / Custom rules embeds</span>
+              <span>04 / Community navigation</span>
+            </div>
+            <div class="nw-actions">
+              <a class="nw-primary" href="noir-project.html">EXPLORE CASE STUDY <span aria-hidden="true">↗</span></a>
+              <a class="nw-secondary" href="contact.html">DISCUSS A PROJECT <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="nw-outro">
+      <span class="nw-kicker">HAVE A PROJECT IN MIND?</span>
+      <h2>LET'S MAKE <em>IT REAL.</em></h2>
+      <a href="contact.html" class="nw-primary">LET'S WORK TOGETHER <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="nw-footer"><span>© 2026 NOIR STUDIO</span><a href="index.html">RETURN HOME ↗</a></footer>
+  <div class="nw-lightbox" id="showcase-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged NOIR STUDIO showcase" hidden>
+    <button class="nw-close" id="close-showcase" type="button" aria-label="Close enlarged image">&times;</button>
+    <img src="images/noir-studio-showcase.png" alt="Enlarged NOIR STUDIO Discord design showcase">
+  </div>
+  <script>
+    const openButton = document.getElementById('open-showcase');
+    const lightbox = document.getElementById('showcase-lightbox');
+    const closeButton = document.getElementById('close-showcase');
+    function closeShowcase() { lightbox.hidden = true; document.body.style.overflow = ''; openButton.focus(); }
+    openButton.addEventListener('click', () => { lightbox.hidden = false; document.body.style.overflow = 'hidden'; closeButton.focus(); });
+    closeButton.addEventListener('click', closeShowcase);
+    lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeShowcase(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !lightbox.hidden) closeShowcase(); });
+  </script>
 </body>
 </html>
