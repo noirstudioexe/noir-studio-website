@@ -23,9 +23,16 @@
     <p>Discord Design & Development</p>
 
 <div class="project-preview">
-    <a href="images/noir-studio-showcase.png" target="_blank" rel="noopener noreferrer">
-        <img src="images/noir-studio-showcase.png" alt="Noir Studio Discord server portfolio showcase">
-    </a>
+    <img
+        src="images/noir-studio-showcase.png"
+        alt="Noir Studio Discord server portfolio showcase"
+        class="showcase-thumbnail"
+        onclick="openShowcase()"
+        tabindex="0"
+        role="button"
+        aria-label="Enlarge Noir Studio showcase"
+        onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openShowcase(); }"
+    >
 </div>
 
 <div class="project-details">
@@ -51,6 +58,38 @@
 </div>
 
 </section>
+
+<div id="showcase-lightbox" class="showcase-lightbox"
+     onclick="closeShowcase()" role="dialog"
+     aria-modal="true" aria-label="Noir Studio showcase"
+     hidden>
+
+    <button class="lightbox-close"
+            onclick="closeShowcase()"
+            aria-label="Close image">&times;</button>
+
+    <img
+        src="images/noir-studio-showcase.png"
+        alt="Enlarged Noir Studio Discord showcase"
+        onclick="event.stopPropagation()"
+    >
+</div>
+
+<script>
+    function openShowcase() {
+        document.getElementById("showcase-lightbox").hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeShowcase() {
+        document.getElementById("showcase-lightbox").hidden = true;
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeShowcase();
+    });
+</script>
 
 </body>
 </html>

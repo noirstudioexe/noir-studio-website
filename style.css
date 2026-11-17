@@ -578,3 +578,55 @@ a.view-project:hover {
         gap: 25px;
     }
 }
+
+/* NOIR STUDIO IMAGE LIGHTBOX */
+
+.showcase-thumbnail {
+    cursor: zoom-in;
+}
+
+.showcase-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.showcase-lightbox[hidden] {
+    display: none;
+}
+
+.showcase-lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .showcase-lightbox {
+        padding: 15px;
+    }
+
+    .showcase-lightbox img {
+        max-width: 100%;
+        max-height: 85vh;
+    }
+}
