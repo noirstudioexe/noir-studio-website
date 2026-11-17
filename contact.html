@@ -1,102 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Noir Studio</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-body {
-    margin: 0;
-    padding-top: 0;
-}
-        .contact-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 24px;
-            box-sizing: border-box;
-            background: #080808;
-            color: #eeeeee;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .contact-page h1 {
-            font-size: clamp(32px, 5vw, 52px);
-            font-weight: 300;
-            letter-spacing: 9px;
-            margin: 0 0 26px;
-        }
-
-        .contact-page .subtitle {
-            color: #aaaaaa;
-            font-size: 13px;
-            letter-spacing: 4px;
-            margin: 0 0 45px;
-        }
-
-        .contact-actions {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .contact-actions a {
-            display: inline-block;
-            min-width: 155px;
-            padding: 16px 25px;
-            border: 1px solid #777777;
-            color: #eeeeee;
-            background: transparent;
-            text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 2px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .contact-actions a:hover {
-            background: #eeeeee;
-            color: #080808;
-        }
-
-        .contact-back {
-            margin-top: 70px;
-            color: #888888;
-            text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
-
-        .contact-back:hover {
-            color: #ffffff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact NOIR STUDIO for Discord community design, digital graphics, and web design projects.">
+  <title>Contact — NOIR STUDIO</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Scoped contact-page styles: existing pages and stylesheet remain unchanged. */
+    body.noir-contact { margin: 0; padding: 0; background: #080808; color: #f1f0ed; text-align: left; font-family: "Helvetica Neue", Arial, sans-serif; }
+    .noir-contact *, .noir-contact *::before, .noir-contact *::after { box-sizing: border-box; }
+    .nc-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 5.5%; border-bottom: 1px solid #292929; }
+    .nc-brand { color: #f3f2ee; font-size: 19px; font-weight: 700; letter-spacing: -1px; text-decoration: none; }
+    .nc-brand sup { font-size: 8px; vertical-align: super; margin-left: 2px; }
+    .nc-nav { display: flex; flex-wrap: wrap; gap: 32px; }
+    .nc-nav a, .nc-kicker, .nc-index, .nc-footer { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+    .nc-nav a { color: #aaa; text-decoration: none; transition: color .2s; }
+    .nc-nav a:hover, .nc-nav a:focus-visible { color: #fff; }
+    .nc-main { width: min(1260px, 89%); margin: 0 auto; }
+    .nc-intro { padding: clamp(80px, 12vw, 180px) 0 85px; border-bottom: 1px solid #292929; }
+    .nc-kicker { color: #aaa; margin: 0 0 35px; }
+    .nc-title { margin: 0; font-size: clamp(60px, 10vw, 152px); line-height: .98; letter-spacing: -.075em; font-weight: 400; text-transform: uppercase; }
+    .nc-title em { display: block; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.075em; text-transform: none; }
+    .nc-description { max-width: 520px; margin: 35px 0 0; color: #aaa; font-size: 16px; line-height: 1.9; letter-spacing: 0; }
+    .nc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 0 100px; }
+    .nc-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 245px; padding: 30px 0 0; border-top: 1px solid #444; }
+    .nc-index { color: #8c8c8c; margin: 0 0 26px; }
+    .nc-card h2 { font-size: clamp(23px, 2.5vw, 36px); font-weight: 400; letter-spacing: -.03em; text-transform: none; margin: 0 0 15px; }
+    .nc-card p:not(.nc-index) { color: #aaa; font-size: 14px; letter-spacing: 0; line-height: 1.8; max-width: 400px; margin: 0 0 30px; }
+    .nc-action { display: inline-block; margin-top: auto; padding: 16px 22px; border: 1px solid #ddd; color: #080808; background: #f1f0ed; text-decoration: none; text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: 1.4px; transition: background .25s, color .25s; }
+    .nc-action:hover, .nc-action:focus-visible { color: #f1f0ed; background: transparent; }
+    .nc-action.secondary { background: transparent; color: #f1f0ed; }
+    .nc-action.secondary:hover, .nc-action.secondary:focus-visible { background: #f1f0ed; color: #080808; }
+    .nc-footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid #292929; padding: 24px 5.5%; color: #999; }
+    .nc-footer a { color: inherit; text-decoration: none; }
+    .nc-footer a:hover { color: #fff; }
+    @media (max-width: 700px) { .nc-header { padding: 24px 6%; } .nc-nav { gap: 16px; } .nc-main { width: 88%; } .nc-intro { padding: 95px 0 65px; } .nc-description { font-size: 14px; } .nc-options { grid-template-columns: 1fr; gap: 50px; padding: 50px 0 70px; } .nc-card { min-height: 0; } .nc-footer { padding: 22px 6%; flex-wrap: wrap; } }
+    @media (prefers-reduced-motion: reduce) { .nc-nav a, .nc-action { transition: none; } }
+  </style>
 </head>
-
-<body>
-    <main class="contact-page">
-        <h1>CONTACT</h1>
-        <p class="subtitle">LET'S WORK TOGETHER.</p>
-
-        <div class="contact-actions">
-            <a href="mailto:samar.logica@gmail.com">
-                EMAIL ME
-            </a>
-            
-<a href="https://discord.gg/A3uRpn9Tyr" target="_blank" rel="noopener noreferrer">
-    DISCORD
-</a>
-        </div>
-
-        <a href="index.html" class="contact-back">
-            BACK TO HOME
-        </a>
-    </main>
-
+<body class="noir-contact">
+  <header class="nc-header">
+    <a class="nc-brand" href="index.html" aria-label="NOIR STUDIO home">NOIR<sup>®</sup></a>
+    <nav class="nc-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+    </nav>
+  </header>
+  <main class="nc-main">
+    <section class="nc-intro" aria-labelledby="contact-title">
+      <p class="nc-kicker">03 / HAVE A PROJECT IN MIND?</p>
+      <h1 class="nc-title" id="contact-title">LET'S MAKE <em>IT REAL.</em></h1>
+      <p class="nc-description">Have a Discord community, digital identity, or website in mind? Tell me what you're building, what you need, and your ideal timeline. Let's talk about bringing it to life.</p>
+    </section>
+    <section class="nc-options" aria-label="Ways to get in touch">
+      <article class="nc-card">
+        <p class="nc-index">01 / PROJECT INQUIRIES</p>
+        <h2>Start with an email.</h2>
+        <p>Share your project idea, scope, and deadline. This opens your email app with a ready-to-fill subject line.</p>
+        <a class="nc-action" href="mailto:samar.logica@gmail.com?subject=NOIR%20STUDIO%20%E2%80%94%20Project%20Inquiry">Email NOIR STUDIO ↗</a>
+      </article>
+      <article class="nc-card">
+        <p class="nc-index">02 / COMMUNITY</p>
+        <h2>Connect on Discord.</h2>
+        <p>Explore the NOIR STUDIO community and connect through Discord.</p>
+        <a class="nc-action secondary" href="https://discord.gg/GbGYQtaXxz" target="_blank" rel="noopener noreferrer">Visit Discord ↗</a>
+      </article>
+    </section>
+  </main>
+  <footer class="nc-footer"><span>© 2026 NOIR STUDIO</span><a href="work.html">VIEW SELECTED WORK ↗</a><a href="index.html">BACK TO HOME ↑</a></footer>
 </body>
 </html>
